@@ -1,0 +1,41 @@
+Call any API endpoint and print the response
+
+Sends a request to the given path with the same User-Agent, authentication, error format and exit
+codes as the other commands. JSON responses keep the API's key order; other bodies are printed as
+is. Methods other than GET and HEAD may change data on Modrinth: mdr does not ask for confirmation,
+so preview them with --dry-run. -f builds a JSON body, -F a multipart body (k=@path for a file),
+--input sends a file or stdin as is; they cannot be combined. --fields selects keys of a JSON
+response (dotted paths, through arrays), checked against the response itself.
+
+Usage:
+  mdr api <path> [flags]
+
+Arguments:
+  <path>   endpoint path without the version, e.g. /project/sodium
+
+Flags:
+  -X, --method <method>              GET, POST, PATCH, PUT, DELETE or HEAD (default GET, or POST
+                                     with -f, -F or --input)
+      --query <key=value>            add a query parameter (repeatable)
+  -f, --field <key=value>            add a JSON body field; values are read like --set (repeatable)
+  -F, --form <key=value|key=@path>   add a multipart part; @path uploads a file (repeatable)
+      --input <file|->               send a file (or stdin) as the body; Content-Type
+                                     application/json unless -H sets it
+  -H, --header <Name: value>         add a request header (repeatable)
+      --api-version <v2|v3|none>     API version prefix of the path; none calls the path from the
+                                     API root, e.g. /updates/{id}/forge_updates.json (default v2)
+  -i, --include                      print the status line and response headers to stderr
+      --paginate                     GET only: fetch every page of a hits/offset/limit/total_hits
+                                     response (up to 1000 hits) as NDJSON
+
+Global flags (-o, --fields, --full, --dry-run, ...): see mdr --help
+
+Examples:
+  mdr api /project/sodium
+  mdr api /search --query query=sodium --query limit=5
+  mdr api /search --query query=sodium --paginate
+  mdr api --api-version v3 /project/sodium
+  mdr api --api-version none /updates/sodium/forge_updates.json
+  mdr api /project/sodium/version --fields version_number,date_published
+  mdr api -X PATCH /project/AANobbMI -f title="New title" --dry-run
+  mdr api -X POST /version -F data=@version.json -F file0=@build/mod.jar --dry-run

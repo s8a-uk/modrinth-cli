@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "path": "version list",
+  "aliases": [
+    "version ls"
+  ],
+  "summary": "List versions of a project",
+  "description": "",
+  "endpoints": [],
+  "args": [
+    {
+      "name": "project",
+      "required": true,
+      "variadic": false,
+      "help": ""
+    }
+  ],
+  "flags": [
+    {
+      "name": "--limit",
+      "type": "int",
+      "default": "20",
+      "help": "max items"
+    }
+  ],
+  "output": {
+    "shape": "array",
+    "default_fields": null,
+    "fields": []
+  },
+  "mutating": false,
+  "requires_yes": false,
+  "supports_dry_run": false,
+  "examples": [
+    "mdr version list sodium"
+  ],
+  "errors": []
+}

@@ -1,0 +1,154 @@
+[
+  {
+    "game_versions": [
+      "1.20.1"
+    ],
+    "loaders": [
+      "fabric",
+      "quilt"
+    ],
+    "environment": "client_only",
+    "id": "OihdIimA",
+    "project_id": "AANobbMI",
+    "author_id": "TEZXhE2U",
+    "featured": false,
+    "name": "Sodium 0.5.13 for Fabric",
+    "version_number": "mc1.20.1-0.5.13-fabric",
+    "changelog": "This is a stable release which back-ports many fixes and improvements from newer versions of Sodium.\n\nFor more informati",
+    "changelog_url": null,
+    "date_published": "2025-03-03T17:45:49.132919Z",
+    "downloads": 12777357,
+    "version_type": "release",
+    "status": "listed",
+    "requested_status": null,
+    "files": [
+      {
+        "id": "KcvCzyWY",
+        "hashes": {
+          "sha512": "81c64f9c2d3402dfa43ee54d8f5a054f5243bfb08984e3addcab9fe885073c79c43c1c8c41e8f30b625d26a656f82a8e5f370bbbbf222ff1c08f4b324edb7ea4",
+          "sha1": "bcdbf37d9494e405cba210d7a80ed58e756297b5"
+        },
+        "url": "https://cdn.modrinth.com/data/AANobbMI/versions/OihdIimA/sodium-fabric-0.5.13%2Bmc1.20.1.jar",
+        "filename": "sodium-fabric-0.5.13+mc1.20.1.jar",
+        "primary": true,
+        "size": 971552,
+        "file_type": null
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "game_versions": [
+      "1.20.1"
+    ],
+    "loaders": [
+      "fabric",
+      "quilt"
+    ],
+    "environment": "client_only",
+    "id": "ryOMVRuG",
+    "project_id": "AANobbMI",
+    "author_id": "TEZXhE2U",
+    "featured": false,
+    "name": "Sodium 0.5.12 (Beta 2) for Fabric 1.20.1",
+    "version_number": "mc1.20.1-0.5.12-beta.2-fabric",
+    "changelog": "This version backports many improvements and bug fixes from newer versions of Sodium 0.6. We recommend that players and ",
+    "changelog_url": null,
+    "date_published": "2025-02-26T00:54:03.278312Z",
+    "downloads": 615019,
+    "version_type": "beta",
+    "status": "listed",
+    "requested_status": null,
+    "files": [
+      {
+        "id": "QRwpUN42",
+        "hashes": {
+          "sha1": "8f6bdf3c1fe2737f819fd4f186f5d89ad68d2e51",
+          "sha512": "e6906b77e709c17bfe445d065353010853cad58a65252f70f9e7e06113156f21c85e91a71e5ccebb4ea0f0168280737bb12ae407e115a9f1df3b5e8d21b87ec5"
+        },
+        "url": "https://cdn.modrinth.com/data/AANobbMI/versions/ryOMVRuG/sodium-fabric-0.5.12-beta.2%2Bmc1.20.1.jar",
+        "filename": "sodium-fabric-0.5.12-beta.2+mc1.20.1.jar",
+        "primary": true,
+        "size": 971376,
+        "file_type": null
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "game_versions": [
+      "1.20.1"
+    ],
+    "loaders": [
+      "fabric",
+      "quilt"
+    ],
+    "environment": "client_only",
+    "id": "ygf8cVZg",
+    "project_id": "AANobbMI",
+    "author_id": "DzLrfrbK",
+    "featured": true,
+    "name": "Sodium 0.5.11",
+    "version_number": "mc1.20.1-0.5.11",
+    "changelog": "This is a minor release of Sodium, further fixing driver checks, adding minor fixes for fluid rendering, and fixing a cr",
+    "changelog_url": null,
+    "date_published": "2024-06-29T13:43:41.842195Z",
+    "downloads": 8288526,
+    "version_type": "release",
+    "status": "listed",
+    "requested_status": null,
+    "files": [
+      {
+        "id": "WD3k9Qny",
+        "hashes": {
+          "sha1": "c4293c1483f3b39c1c6c4c69143e8bb2c6e53daf",
+          "sha512": "628129702e830fe88d79f0b87ef0591b708fb39045ce3d985703d6a3a78c30c9beb518df8e70151e55ca6c82d9274fea904c016f60085d889a4f7ac431cccd9e"
+        },
+        "url": "https://cdn.modrinth.com/data/AANobbMI/versions/ygf8cVZg/sodium-fabric-0.5.11%2Bmc1.20.1.jar",
+        "filename": "sodium-fabric-0.5.11+mc1.20.1.jar",
+        "primary": true,
+        "size": 968419,
+        "file_type": null
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "game_versions": [
+      "1.20.1"
+    ],
+    "loaders": [
+      "fabric",
+      "quilt"
+    ],
+    "environment": "client_only",
+    "id": "dEpHs0Hg",
+    "project_id": "AANobbMI",
+    "author_id": "DzLrfrbK",
+    "featured": false,
+    "name": "Sodium 0.5.10",
+    "version_number": "mc1.20.1-0.5.10",
+    "changelog": "This is a hotfix to fix some items not showing on 1.20.1.",
+    "changelog_url": null,
+    "date_published": "2024-06-13T21:09:52.183012Z",
+    "downloads": 483409,
+    "version_type": "release",
+    "status": "listed",
+    "requested_status": null,
+    "files": [
+      {
+        "id": "FLE53b8O",
+        "hashes": {
+          "sha512": "38c77d8bac2354d0662a533ee432be3321e1fac164071638ac97a2fc6db8579c2b13a304809362d5a004348d6d75ca2a32274f6f3d9e87453a8ade3cf13cea5b",
+          "sha1": "0a47b4930e2340173e00470f8f9da51374aa765d"
+        },
+        "url": "https://cdn.modrinth.com/data/AANobbMI/versions/dEpHs0Hg/sodium-fabric-0.5.10%2Bmc1.20.1.jar",
+        "filename": "sodium-fabric-0.5.10+mc1.20.1.jar",
+        "primary": true,
+        "size": 965275,
+        "file_type": null
+      }
+    ],
+    "dependencies": []
+  }
+]

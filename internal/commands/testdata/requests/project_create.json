@@ -1,0 +1,12 @@
+{
+  "slug": "mdr-test-mod",
+  "title": "mdr test mod",
+  "description": "A project created by the mdr tests",
+  "body": "Nothing to see here.",
+  "categories": ["utility"],
+  "client_side": "optional",
+  "server_side": "optional",
+  "license_id": "MIT",
+  "project_type": "mod",
+  "is_draft": true
+}

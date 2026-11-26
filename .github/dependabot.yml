@@ -1,0 +1,13 @@
+# Updates for the only dependencies: the pinned GitHub Actions and the Go image of
+# the dev container (Dockerfile). The Windows and macOS CI jobs read the Go version
+# from the Dockerfile, so one PR updates Go everywhere.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly

@@ -1,0 +1,1 @@
+{"error":{"code":"invalid_input","message":"invalid project id or slug: \"a?b\" (use 1-64 letters, digits or !@$()`.+,\"-'_)","http_status":null,"retryable":false,"hint":"check the id or slug; try: mdr search <name>"}}

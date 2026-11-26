@@ -1,0 +1,21 @@
+Describe commands as JSON (for agents and scripts)
+
+Without arguments, lists every command in one JSON object. With a command path, describes that
+command: arguments, flags, output fields and examples. Always prints JSON, whatever --output says.
+Does not use the network.
+
+Usage:
+  mdr schema [<command>...] [flags]
+
+Arguments:
+  <command>   command path, e.g. "project get"
+
+Flags:
+      --all   describe every command, one JSON object per line
+
+Global flags (-o, --fields, --full, --dry-run, ...): see mdr --help
+
+Examples:
+  mdr schema
+  mdr schema schema
+  mdr schema --all

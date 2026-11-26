@@ -1,0 +1,1 @@
+{"dry_run":true,"request":{"method":"GET","url":"<BASE>/v2/version_file/c4293c1483f3b39c1c6c4c69143e8bb2c6e53daf?algorithm=sha1","headers":{"Accept":"application/json","User-Agent":"s8a-uk/modrinth-cli/<VERSION> (https://github.com/s8a-uk/modrinth-cli)"}}}

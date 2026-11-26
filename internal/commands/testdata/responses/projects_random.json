@@ -1,0 +1,143 @@
+[
+  {
+    "client_side": "required",
+    "server_side": "unsupported",
+    "game_versions": [
+      "1.21.10",
+      "1.21.10-rc1",
+      "1.21.11"
+    ],
+    "environment": [],
+    "id": "IzkdFWDZ",
+    "slug": "mels-3d-items",
+    "project_type": "resourcepack",
+    "team": "jkjz1Wxo",
+    "organization": null,
+    "title": "Mel's 3D Items",
+    "description": "This texture pack adds 3D items with the goal of making every item (not block) 3d, with their own textures, and animations!",
+    "body": "# Mel's 3D Items\n\nMel's 3D Items is a texture pack with the goal of adding a 3D model to each item to the game.\n\n\nThe pa",
+    "body_url": null,
+    "published": "2026-10-05T21:08:18.381849Z",
+    "updated": "2026-10-21T01:05:03.602193Z",
+    "approved": "2026-10-07T19:45:55.841044Z",
+    "queued": "2026-10-06T00:19:53.065965Z",
+    "status": "approved",
+    "requested_status": "approved",
+    "moderator_message": null,
+    "license": {
+      "id": "CC-BY-NC-4.0",
+      "name": "Creative Commons Attribution Non Commercial 4.0 International",
+      "url": null
+    },
+    "downloads": 592,
+    "followers": 3,
+    "categories": [
+      "16x",
+      "models",
+      "vanilla-like"
+    ],
+    "additional_categories": [
+      "blocks",
+      "items",
+      "simplistic",
+      "themed",
+      "tweaks"
+    ],
+    "loaders": [
+      "minecraft"
+    ],
+    "versions": [
+      "iP6b5lJD",
+      "3Wzy7UrC",
+      "NKzIMWb8"
+    ],
+    "icon_url": "https://cdn.modrinth.com/data/IzkdFWDZ/01ebcabff8b111d943d2c58c4a8c8daf198feaae_96.webp",
+    "raw_icon_url": "https://cdn.modrinth.com/data/IzkdFWDZ/01ebcabff8b111d943d2c58c4a8c8daf198feaae.png",
+    "issues_url": null,
+    "source_url": null,
+    "wiki_url": null,
+    "discord_url": null,
+    "donation_urls": [],
+    "gallery": [
+      {
+        "url": "https://cdn.modrinth.com/data/IzkdFWDZ/images/92ab304be9616ec08e0732d7b8762a0ac1c0e1fa_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/IzkdFWDZ/images/92ab304be9616ec08e0732d7b8762a0ac1c0e1fa.webp",
+        "featured": true,
+        "title": "Nether Mace Render",
+        "description": "\nCredits go to NSB Gamer for the screenshot",
+        "created": "2026-10-15T00:16:50.784211Z",
+        "ordering": -500000000000
+      }
+    ],
+    "color": 16043882,
+    "thread_id": "iaN5hBjk",
+    "monetization_status": "monetized"
+  },
+  {
+    "client_side": "required",
+    "server_side": "required",
+    "game_versions": [
+      "1.21.8"
+    ],
+    "environment": [
+      "client_and_server"
+    ],
+    "id": "IzjOs40e",
+    "slug": "spring-boots",
+    "project_type": "mod",
+    "team": "5RIgqFs0",
+    "organization": null,
+    "title": "Spring Boots",
+    "description": "Adds spring boots",
+    "body": "# Spring Boots <img src=\"https://raw.githubusercontent.com/Tomate0613/spring-boots/refs/heads/1.21.8/src/main/resources/",
+    "body_url": null,
+    "published": "2025-08-05T13:20:57.210406Z",
+    "updated": "2025-09-22T17:38:30.663116Z",
+    "approved": "2025-08-10T10:57:22.759444Z",
+    "queued": "2025-08-05T14:44:17.083848Z",
+    "status": "approved",
+    "requested_status": "approved",
+    "moderator_message": null,
+    "license": {
+      "id": "MIT",
+      "name": "MIT License",
+      "url": "https://raw.githubusercontent.com/Tomate0613/spring-boots/refs/heads/1.21.8/LICENSE.txt"
+    },
+    "downloads": 1952,
+    "followers": 5,
+    "categories": [
+      "game-mechanics",
+      "minigame"
+    ],
+    "additional_categories": [],
+    "loaders": [
+      "fabric"
+    ],
+    "versions": [
+      "3AdZwXmT",
+      "1pImGY0s",
+      "aXdigZeM"
+    ],
+    "icon_url": "https://cdn.modrinth.com/data/IzjOs40e/d8e38c714992205ae5ee861c07540ff38b6af9a7.png",
+    "raw_icon_url": "https://cdn.modrinth.com/data/IzjOs40e/d8e38c714992205ae5ee861c07540ff38b6af9a7.png",
+    "issues_url": "https://github.com/Tomate0613/spring-boots/issues",
+    "source_url": "https://github.com/Tomate0613/spring-boots/",
+    "wiki_url": null,
+    "discord_url": null,
+    "donation_urls": [],
+    "gallery": [
+      {
+        "url": "https://cdn.modrinth.com/data/IzjOs40e/images/81ce28ac23a9a6f5098a0217d106bdf6da1e0f84_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/IzjOs40e/images/81ce28ac23a9a6f5098a0217d106bdf6da1e0f84.webp",
+        "featured": false,
+        "title": "Spring Boots",
+        "description": "A player jumping around using spring boots",
+        "created": "2025-08-05T14:00:52.723426Z",
+        "ordering": 0
+      }
+    ],
+    "color": 2760216,
+    "thread_id": "MhIQqNmI",
+    "monetization_status": "monetized"
+  }
+]

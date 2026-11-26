@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "path": "project",
+  "commands": [
+    {
+      "path": "project get",
+      "summary": "Get one project by id or slug",
+      "mutating": false
+    },
+    {
+      "path": "project get-many",
+      "summary": "Get several projects",
+      "mutating": false
+    },
+    {
+      "path": "project delete",
+      "summary": "Delete a project",
+      "mutating": "destructive",
+      "scope": "PROJECT_DELETE"
+    }
+  ]
+}

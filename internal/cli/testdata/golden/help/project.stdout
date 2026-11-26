@@ -1,0 +1,11 @@
+Projects
+
+Usage:
+  mdr project <command> [flags]
+
+Commands:
+  get        Get one project by id or slug
+  get-many   Get several projects
+  delete     Delete a project
+
+Run "mdr project <command> --help" for details.

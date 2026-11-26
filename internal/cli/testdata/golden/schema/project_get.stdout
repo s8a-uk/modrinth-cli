@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "path": "project get",
+  "aliases": [],
+  "summary": "Get one project by id or slug",
+  "description": "",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/project/{id|slug}",
+      "scope": null
+    }
+  ],
+  "args": [
+    {
+      "name": "id",
+      "required": true,
+      "variadic": false,
+      "help": "project id or slug"
+    }
+  ],
+  "flags": [],
+  "output": {
+    "shape": "object",
+    "default_fields": [
+      "id",
+      "slug"
+    ],
+    "fields": [
+      "id",
+      "slug",
+      "title",
+      "license.id"
+    ]
+  },
+  "mutating": false,
+  "requires_yes": false,
+  "supports_dry_run": true,
+  "examples": [
+    "mdr project get sodium"
+  ],
+  "errors": []
+}

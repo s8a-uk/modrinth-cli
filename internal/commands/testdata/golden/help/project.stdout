@@ -1,0 +1,17 @@
+Read, create and edit projects (mods, modpacks, ...)
+
+Usage:
+  mdr project <command> [flags]
+
+Commands:
+  get            Get one project by id or slug
+  get-many       Get several projects by id or slug
+  random         Get random projects
+  check          Check that a project exists and get its id
+  dependencies   List the projects and versions a project depends on
+  members        List the team members of a project
+  create         Create a project from a JSON description
+  edit           Change fields of a project
+  delete         Delete a project with all its versions
+
+Run "mdr project <command> --help" for details.

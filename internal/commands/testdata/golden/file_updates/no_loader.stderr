@@ -1,0 +1,1 @@
+{"error":{"code":"usage","message":"--loader and --game-version are required","http_status":null,"retryable":false,"hint":"both are required by the API, e.g. --loader fabric --game-version 1.20.1"}}

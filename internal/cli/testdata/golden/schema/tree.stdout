@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "name": "mdr",
+  "version": "1.2.3",
+  "api": {
+    "base_url": "https://api.modrinth.com/v2",
+    "staging_url": "https://staging-api.modrinth.com/v2"
+  },
+  "global_flags": [
+    {
+      "name": "--output",
+      "short": "-o",
+      "type": "enum",
+      "values": [
+        "auto",
+        "json",
+        "ndjson",
+        "table"
+      ],
+      "default": "auto",
+      "help": "output format; auto: table on a terminal, json otherwise; do not parse table"
+    },
+    {
+      "name": "--fields",
+      "type": "list",
+      "help": "select output fields (comma-separated paths, or all)"
+    },
+    {
+      "name": "--full",
+      "type": "bool",
+      "help": "output all fields (same as --fields all)"
+    },
+    {
+      "name": "--staging",
+      "type": "bool",
+      "help": "use the staging API (staging-api.modrinth.com)"
+    },
+    {
+      "name": "--dry-run",
+      "type": "bool",
+      "help": "print the request that would be sent instead of sending it"
+    },
+    {
+      "name": "--yes",
+      "short": "-y",
+      "type": "bool",
+      "help": "skip the confirmation of destructive commands"
+    },
+    {
+      "name": "--timeout",
+      "type": "int",
+      "default": "30",
+      "help": "per-request timeout in seconds, 1-3600"
+    },
+    {
+      "name": "--max-wait",
+      "type": "int",
+      "default": "60",
+      "help": "max seconds to wait on rate limits in total, 0-3600"
+    },
+    {
+      "name": "--no-retry",
+      "type": "bool",
+      "help": "disable automatic retries"
+    },
+    {
+      "name": "--verbose",
+      "short": "-v",
+      "type": "bool",
+      "help": "log requests to stderr"
+    },
+    {
+      "name": "-vv",
+      "type": "bool",
+      "help": "log requests and headers to stderr"
+    },
+    {
+      "name": "--quiet",
+      "short": "-q",
+      "type": "bool",
+      "help": "suppress notes on stderr (errors are still printed)"
+    },
+    {
+      "name": "--no-color",
+      "type": "bool",
+      "help": "disable colors (also NO_COLOR)"
+    },
+    {
+      "name": "--help",
+      "short": "-h",
+      "type": "bool",
+      "help": "show help"
+    },
+    {
+      "name": "--version",
+      "type": "bool",
+      "help": "print the mdr version"
+    }
+  ],
+  "exit_codes": {
+    "0": "success",
+    "1": "internal",
+    "2": "usage",
+    "3": "not_found",
+    "4": "auth",
+    "5": "api_rejected",
+    "6": "rate_limited",
+    "7": "network",
+    "8": "server_error",
+    "9": "hash_mismatch",
+    "130": "interrupted"
+  },
+  "error_shape": {
+    "stream": "stderr",
+    "keys": [
+      "code",
+      "message",
+      "http_status",
+      "retryable",
+      "retry_after_s",
+      "hint",
+      "request",
+      "api_error",
+      "api_description",
+      "api_details",
+      "body_excerpt"
+    ]
+  },
+  "commands": [
+    {
+      "path": "search",
+      "summary": "Search projects",
+      "mutating": false
+    },
+    {
+      "path": "project get",
+      "summary": "Get one project by id or slug",
+      "mutating": false
+    },
+    {
+      "path": "project get-many",
+      "summary": "Get several projects",
+      "mutating": false
+    },
+    {
+      "path": "project delete",
+      "summary": "Delete a project",
+      "mutating": "destructive",
+      "scope": "PROJECT_DELETE"
+    },
+    {
+      "path": "version list",
+      "summary": "List versions of a project",
+      "mutating": false
+    },
+    {
+      "path": "user me",
+      "summary": "Show the authenticated user",
+      "mutating": false
+    },
+    {
+      "path": "schema",
+      "summary": "Describe commands as JSON",
+      "mutating": false
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+# mdr completion for PowerShell, generated from the command table by "mdr completion powershell".
+Register-ArgumentCompleter -Native -CommandName mdr -ScriptBlock {
+    param($wordToComplete, $commandAst, $cursorPosition)
+    # Ordinal (case-sensitive) keys: -H and -h are different flags.
+    $children = New-Object 'System.Collections.Generic.Dictionary[string,string]'
+    $children['project'] = 'get get-many delete search'
+    $children['version'] = 'list'
+    $children['user'] = 'me'
+    $children[''] = 'search project version user whoami schema'
+    $child = New-Object 'System.Collections.Generic.Dictionary[string,string]'
+    $child['/search'] = 'search'
+    $child['/project'] = 'project'
+    $child['project/get'] = 'project get'
+    $child['project/get-many'] = 'project get-many'
+    $child['project/delete'] = 'project delete'
+    $child['project/rm'] = 'project delete'
+    $child['project/search'] = 'search'
+    $child['/version'] = 'version'
+    $child['version/list'] = 'version list'
+    $child['version/ls'] = 'version list'
+    $child['/user'] = 'user'
+    $child['user/me'] = 'user me'
+    $child['/whoami'] = 'user me'
+    $child['/schema'] = 'schema'
+    $child['/describe'] = 'schema'
+    $flags = New-Object 'System.Collections.Generic.Dictionary[string,string]'
+    $flags['search'] = '--loader'
+    $flags['project delete'] = '--reason -r'
+    $flags['version list'] = '--limit'
+    $globalFlags = '--output -o --fields --full --staging --dry-run --yes -y --timeout --max-wait --no-retry --verbose -v -vv --quiet -q --no-color --help -h --version'
+    $values = New-Object 'System.Collections.Generic.Dictionary[string,string]'
+    $values['/--output'] = 'auto json ndjson table'
+    $values['/-o'] = 'auto json ndjson table'
+    $values['/--fields'] = ''
+    $values['/--timeout'] = ''
+    $values['/--max-wait'] = ''
+    $values['search/--loader'] = ''
+    $values['project delete/--reason'] = ''
+    $values['project delete/-r'] = ''
+    $values['version list/--limit'] = ''
+    $argValues = New-Object 'System.Collections.Generic.Dictionary[string,string]'
+
+    # The values of a flag: $null if it takes none, '' if it takes any value.
+    $flagValues = {
+        param($path, $flag)
+        if ($values.ContainsKey("$path/$flag")) { return $values["$path/$flag"] }
+        if ($values.ContainsKey("/$flag")) { return $values["/$flag"] }
+        return $null
+    }
+    $words = @($commandAst.CommandElements | Select-Object -Skip 1 | ForEach-Object { $_.Extent.Text })
+    if ($wordToComplete -ne '' -and $words.Count -gt 0) {
+        $words = @($words | Select-Object -SkipLast 1)
+    }
+    $path = ''
+    $skip = $false
+    foreach ($w in $words) {
+        if ($skip) { $skip = $false; continue }
+        if ($w -eq '--') { break }
+        if ($w -like '-*=*') { continue }
+        if ($w -like '-*') {
+            if ($null -ne (& $flagValues $path $w)) { $skip = $true }
+            continue
+        }
+        if ($child.ContainsKey("$path/$w")) { $path = $child["$path/$w"] }
+    }
+    $candidates = $null
+    $prev = if ($words.Count -gt 0) { $words[-1] } else { '' }
+    if ($prev -like '-*' -and $prev -notlike '-*=*') {
+        $v = & $flagValues $path $prev
+        if ($null -ne $v) {
+            if ($v -eq '') { return }
+            $candidates = $v
+        }
+    }
+    if ($null -eq $candidates) {
+        if ($wordToComplete -like '-*') {
+            $candidates = $globalFlags
+            if ($flags.ContainsKey($path)) { $candidates = $flags[$path] + ' ' + $globalFlags }
+        } elseif ($children.ContainsKey($path)) {
+            $candidates = $children[$path]
+        } elseif ($argValues.ContainsKey($path)) {
+            $candidates = $argValues[$path]
+        } else {
+            return
+        }
+    }
+    $candidates -split ' ' | Where-Object { $_ -clike "$wordToComplete*" } | ForEach-Object {
+        [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+    }
+}

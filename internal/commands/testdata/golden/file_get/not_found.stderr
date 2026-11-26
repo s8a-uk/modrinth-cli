@@ -1,0 +1,1 @@
+{"error":{"code":"not_found","message":"no version has a file with this sha1 hash","http_status":404,"retryable":false,"hint":"the file may not be on Modrinth; check the hash and --algorithm","request":{"method":"GET","url":"<BASE>/v2/version_file/c4293c1483f3b39c1c6c4c69143e8bb2c6e53daf?algorithm=sha1"},"api_error":null,"api_description":null}}

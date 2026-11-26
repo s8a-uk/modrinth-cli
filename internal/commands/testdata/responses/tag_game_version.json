@@ -1,0 +1,32 @@
+[
+  {
+    "version": "26.4-pre-1",
+    "version_type": "snapshot",
+    "date": "2026-11-24T12:48:31Z",
+    "major": false
+  },
+  {
+    "version": "26.4-snapshot-10",
+    "version_type": "snapshot",
+    "date": "2026-11-17T16:02:02Z",
+    "major": false
+  },
+  {
+    "version": "26.3",
+    "version_type": "release",
+    "date": "2026-09-15T11:23:02Z",
+    "major": true
+  },
+  {
+    "version": "26.2",
+    "version_type": "release",
+    "date": "2026-06-16T12:03:33Z",
+    "major": true
+  },
+  {
+    "version": "26.1.2",
+    "version_type": "release",
+    "date": "2026-04-09T10:12:23Z",
+    "major": true
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "b0919519f2ce602e41268027bd20607d7533e06299d9d3730612649b0be61ebc58f4180fa1297cbddf0b6e231e26b6049d652aa97e238d3f1e20653e6c54a7aa": {
+    "game_versions": [
+      "1.20.1"
+    ],
+    "loaders": [
+      "fabric",
+      "quilt"
+    ],
+    "environment": "client_only",
+    "id": "ygf8cVZg",
+    "project_id": "AANobbMI",
+    "author_id": "DzLrfrbK",
+    "featured": true,
+    "name": "Sodium 0.5.11",
+    "version_number": "mc1.20.1-0.5.11",
+    "changelog": "This is a minor release of Sodium, further fixing driver checks, adding minor fixes for fluid rendering, and fixing a cr",
+    "changelog_url": null,
+    "date_published": "2024-06-29T13:43:41.842195Z",
+    "downloads": 8288526,
+    "version_type": "release",
+    "status": "listed",
+    "requested_status": null,
+    "files": [
+      {
+        "id": "WD3k9Qny",
+        "hashes": {
+          "sha1": "c4293c1483f3b39c1c6c4c69143e8bb2c6e53daf",
+          "sha512": "628129702e830fe88d79f0b87ef0591b708fb39045ce3d985703d6a3a78c30c9beb518df8e70151e55ca6c82d9274fea904c016f60085d889a4f7ac431cccd9e"
+        },
+        "url": "https://cdn.modrinth.com/data/AANobbMI/versions/ygf8cVZg/sodium-fabric-0.5.11%2Bmc1.20.1.jar",
+        "filename": "sodium-fabric-0.5.11+mc1.20.1.jar",
+        "primary": true,
+        "size": 968419,
+        "file_type": null
+      }
+    ],
+    "dependencies": []
+  }
+}

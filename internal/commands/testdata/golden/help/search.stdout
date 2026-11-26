@@ -1,0 +1,44 @@
+Search projects
+
+Searches projects. Values of one repeated flag are ORed, different flags are ANDed; each --category
+and each --facet is its own AND group. --facets passes the raw facets JSON instead (not combinable
+with the facet flags). More than 100 results are fetched in pages.
+
+Usage:
+  mdr search [<query>] [flags]
+
+Arguments:
+  <query>   search text (at most 256 characters)
+
+Flags:
+      --type <type>                                         project type, e.g. mod, modpack,
+                                                            resourcepack (repeatable, OR)
+      --loader <loader>                                     loader, e.g. fabric (repeatable, OR)
+      --game-version <version>                              game version, e.g. 1.20.1 (repeatable,
+                                                            OR)
+      --category <category>                                 category (repeatable, AND)
+      --environment <env>                                   environment (repeatable, OR)
+      --license <spdx>                                      license id (repeatable, OR)
+      --author <user>                                       author username (repeatable, OR)
+      --open-source                                         only open-source projects
+      --facet <expr,...>                                    facet group, e.g. downloads>=1000;
+                                                            commas OR (repeatable, AND)
+      --facets <json>                                       raw facets JSON, e.g.
+                                                            '[["categories:fabric"]]'
+      --sort <relevance|downloads|follows|newest|updated>   sort order (API default: relevance)
+      --limit <n>                                           number of hits, 1-1000 (default 10)
+      --offset <n>                                          hits to skip, 0-100000 (default 0)
+
+Global flags (-o, --fields, --full, --dry-run, ...): see mdr --help
+
+Output fields (default; all: mdr schema search):
+  project_id, slug, title, description, project_type, author, downloads, follows, latest_version,
+  date_modified
+
+Examples:
+  mdr search sodium
+  mdr search --type mod --loader fabric --game-version 1.20.1 --sort downloads --limit 5
+  mdr search shader --facet 'downloads>=100000' --fields slug,title,downloads
+  mdr search --facets '[["categories:fabric"],["versions:1.20.1"]]'
+
+API: GET /search

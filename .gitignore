@@ -1,0 +1,4 @@
+/bin/
+/dist/
+# Claude Code local memory and settings
+/.claude/

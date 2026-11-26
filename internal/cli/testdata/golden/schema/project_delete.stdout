@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "path": "project delete",
+  "aliases": [
+    "project rm"
+  ],
+  "summary": "Delete a project",
+  "description": "",
+  "endpoints": [
+    {
+      "method": "DELETE",
+      "path": "/project/{id|slug}",
+      "scope": "PROJECT_DELETE"
+    }
+  ],
+  "args": [
+    {
+      "name": "id",
+      "required": true,
+      "variadic": false,
+      "help": "project id or slug"
+    }
+  ],
+  "flags": [
+    {
+      "name": "--reason",
+      "short": "-r",
+      "type": "string",
+      "help": "why"
+    }
+  ],
+  "output": {
+    "shape": "ack",
+    "default_fields": null,
+    "fields": []
+  },
+  "mutating": "destructive",
+  "requires_yes": true,
+  "supports_dry_run": true,
+  "examples": [
+    "mdr project delete my-mod --yes"
+  ],
+  "errors": [
+    "not_found"
+  ]
+}

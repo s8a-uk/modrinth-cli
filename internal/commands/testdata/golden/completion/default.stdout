@@ -1,0 +1,220 @@
+# mdr completion for bash, generated from the command table by "mdr completion bash".
+
+_mdr_children() {
+  case "$1" in
+    "project") echo "get get-many random check dependencies members create edit delete search" ;;
+    "version") echo "list get get-many download create add-file edit delete" ;;
+    "file") echo "get identify updates" ;;
+    "user") echo "me get get-many projects" ;;
+    "team") echo "members" ;;
+    "tag") echo "list license" ;;
+    "auth") echo "login status logout" ;;
+    "config") echo "get set unset list path" ;;
+    "") echo "search project version file user whoami team tag stats auth config api completion schema" ;;
+  esac
+}
+
+_mdr_child() {
+  case "$1/$2" in
+    "/search") echo "search" ;;
+    "/project") echo "project" ;;
+    "project/get") echo "project get" ;;
+    "project/get-many") echo "project get-many" ;;
+    "project/random") echo "project random" ;;
+    "project/check") echo "project check" ;;
+    "project/dependencies") echo "project dependencies" ;;
+    "project/members") echo "project members" ;;
+    "project/create") echo "project create" ;;
+    "project/edit") echo "project edit" ;;
+    "project/delete") echo "project delete" ;;
+    "project/search") echo "search" ;;
+    "/version") echo "version" ;;
+    "version/list") echo "version list" ;;
+    "version/ls") echo "version list" ;;
+    "version/get") echo "version get" ;;
+    "version/get-many") echo "version get-many" ;;
+    "version/download") echo "version download" ;;
+    "version/create") echo "version create" ;;
+    "version/add-file") echo "version add-file" ;;
+    "version/edit") echo "version edit" ;;
+    "version/delete") echo "version delete" ;;
+    "/file") echo "file" ;;
+    "file/get") echo "file get" ;;
+    "file/identify") echo "file identify" ;;
+    "file/updates") echo "file updates" ;;
+    "/user") echo "user" ;;
+    "user/me") echo "user me" ;;
+    "user/get") echo "user get" ;;
+    "user/get-many") echo "user get-many" ;;
+    "user/projects") echo "user projects" ;;
+    "/whoami") echo "user me" ;;
+    "/team") echo "team" ;;
+    "team/members") echo "team members" ;;
+    "/tag") echo "tag" ;;
+    "tag/list") echo "tag list" ;;
+    "tag/license") echo "tag license" ;;
+    "/stats") echo "stats" ;;
+    "/auth") echo "auth" ;;
+    "auth/login") echo "auth login" ;;
+    "auth/status") echo "auth status" ;;
+    "auth/logout") echo "auth logout" ;;
+    "/config") echo "config" ;;
+    "config/get") echo "config get" ;;
+    "config/set") echo "config set" ;;
+    "config/unset") echo "config unset" ;;
+    "config/list") echo "config list" ;;
+    "config/path") echo "config path" ;;
+    "/api") echo "api" ;;
+    "/completion") echo "completion" ;;
+    "/schema") echo "schema" ;;
+    "/describe") echo "schema" ;;
+  esac
+}
+
+_mdr_flags() {
+  case "$1" in
+    "search") echo "--type --loader --game-version --category --environment --license --author --open-source --facet --facets --sort --limit --offset" ;;
+    "project random") echo "--count" ;;
+    "project create") echo "--data --icon" ;;
+    "project edit") echo "--set --data" ;;
+    "version list") echo "--loader --game-version --featured --version-type --limit" ;;
+    "version download") echo "--dir --file --all --force" ;;
+    "version create") echo "--file --version-number --name --loader --game-version --version-type --changelog --changelog-file --dependency --featured --status --primary --data" ;;
+    "version add-file") echo "--file" ;;
+    "version edit") echo "--set --data" ;;
+    "file get") echo "--algorithm" ;;
+    "file identify") echo "--algorithm --no-project" ;;
+    "file updates") echo "--loader --game-version --version-type --algorithm --only-updates --no-project" ;;
+    "user projects") echo "--limit" ;;
+    "tag list") echo "--project-type --version-type --limit" ;;
+    "auth login") echo "--with-token" ;;
+    "api") echo "--method -X --query --field -f --form -F --input --header -H --api-version --include -i --paginate" ;;
+    "schema") echo "--all" ;;
+  esac
+  echo "--output -o --fields --full --staging --dry-run --yes -y --timeout --max-wait --no-retry --verbose -v -vv --quiet -q --no-color --help -h --version"
+}
+
+_mdr_values() {
+  case "$1/$2" in
+    */"--output") echo "auto json ndjson table" ;;
+    */"-o") echo "auto json ndjson table" ;;
+    */"--fields") echo "" ;;
+    */"--timeout") echo "" ;;
+    */"--max-wait") echo "" ;;
+    "search/--type") echo "" ;;
+    "search/--loader") echo "" ;;
+    "search/--game-version") echo "" ;;
+    "search/--category") echo "" ;;
+    "search/--environment") echo "" ;;
+    "search/--license") echo "" ;;
+    "search/--author") echo "" ;;
+    "search/--facet") echo "" ;;
+    "search/--facets") echo "" ;;
+    "search/--sort") echo "relevance downloads follows newest updated" ;;
+    "search/--limit") echo "" ;;
+    "search/--offset") echo "" ;;
+    "project random/--count") echo "" ;;
+    "project create/--data") echo "" ;;
+    "project create/--icon") echo "" ;;
+    "project edit/--set") echo "" ;;
+    "project edit/--data") echo "" ;;
+    "version list/--loader") echo "" ;;
+    "version list/--game-version") echo "" ;;
+    "version list/--version-type") echo "" ;;
+    "version list/--limit") echo "" ;;
+    "version download/--dir") echo "" ;;
+    "version download/--file") echo "" ;;
+    "version create/--file") echo "" ;;
+    "version create/--version-number") echo "" ;;
+    "version create/--name") echo "" ;;
+    "version create/--loader") echo "" ;;
+    "version create/--game-version") echo "" ;;
+    "version create/--version-type") echo "release beta alpha" ;;
+    "version create/--changelog") echo "" ;;
+    "version create/--changelog-file") echo "" ;;
+    "version create/--dependency") echo "" ;;
+    "version create/--status") echo "" ;;
+    "version create/--primary") echo "" ;;
+    "version create/--data") echo "" ;;
+    "version add-file/--file") echo "" ;;
+    "version edit/--set") echo "" ;;
+    "version edit/--data") echo "" ;;
+    "file get/--algorithm") echo "sha1 sha512" ;;
+    "file identify/--algorithm") echo "sha1 sha512" ;;
+    "file updates/--loader") echo "" ;;
+    "file updates/--game-version") echo "" ;;
+    "file updates/--version-type") echo "" ;;
+    "file updates/--algorithm") echo "sha1 sha512" ;;
+    "user projects/--limit") echo "" ;;
+    "tag list/--project-type") echo "" ;;
+    "tag list/--version-type") echo "release snapshot alpha beta" ;;
+    "tag list/--limit") echo "" ;;
+    "api/--method") echo "" ;;
+    "api/-X") echo "" ;;
+    "api/--query") echo "" ;;
+    "api/--field") echo "" ;;
+    "api/-f") echo "" ;;
+    "api/--form") echo "" ;;
+    "api/-F") echo "" ;;
+    "api/--input") echo "" ;;
+    "api/--header") echo "" ;;
+    "api/-H") echo "" ;;
+    "api/--api-version") echo "v2 v3 none" ;;
+    *) return 1 ;;
+  esac
+}
+
+_mdr_args() {
+  case "$1" in
+    "tag list") echo "category loader game-version license donation-platform report-type project-type side-type" ;;
+    "completion") echo "bash zsh fish powershell" ;;
+  esac
+}
+
+# _mdr_path <words before the cursor, without mdr>: the command path. Flags (and
+# the values of flags that take one) are skipped, command names descend.
+_mdr_path() {
+  local cmdpath="" w next skip=0
+  for w in "$@"; do
+    if [ "$skip" = 1 ]; then skip=0; continue; fi
+    case "$w" in
+      --) break ;;
+      -*=*) ;;
+      -*) if _mdr_values "$cmdpath" "$w" >/<VERSION>/null; then skip=1; fi ;;
+      *) next="$(_mdr_child "$cmdpath" "$w")"; if [ -n "$next" ]; then cmdpath="$next"; fi ;;
+    esac
+  done
+  echo "$cmdpath"
+}
+
+# _mdr_candidates <path> <previous word> <current word>: the words to offer, or
+# nothing (exit 1) for file names.
+_mdr_candidates() {
+  local vals
+  case "$2" in
+    -*=*) ;;
+    -*) if vals="$(_mdr_values "$1" "$2")"; then
+          [ -n "$vals" ] && echo "$vals" && return 0
+          return 1
+        fi ;;
+  esac
+  case "$3" in
+    -*) _mdr_flags "$1"; return 0 ;;
+  esac
+  vals="$(_mdr_children "$1")"
+  [ -z "$vals" ] && vals="$(_mdr_args "$1")"
+  [ -n "$vals" ] && echo "$vals" && return 0
+  return 1
+}
+
+_mdr() {
+  local cur="${COMP_WORDS[COMP_CWORD]}" prev="" cmdpath vals
+  [ "$COMP_CWORD" -gt 1 ] && prev="${COMP_WORDS[COMP_CWORD-1]}"
+  cmdpath="$(_mdr_path "${COMP_WORDS[@]:1:COMP_CWORD-1}")"
+  if vals="$(_mdr_candidates "$cmdpath" "$prev" "$cur")"; then
+    COMPREPLY=($(compgen -W "$vals" -- "$cur"))
+  else
+    COMPREPLY=($(compgen -f -- "$cur"))
+  fi
+}
+complete -o default -F _mdr mdr

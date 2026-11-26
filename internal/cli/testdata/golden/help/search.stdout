@@ -1,0 +1,20 @@
+Search projects
+
+Usage:
+  mdr search [<query>] [flags]
+
+Arguments:
+  <query>   search text
+
+Flags:
+      --loader <value>   filter by loader (repeatable)
+
+Global flags (-o, --fields, --full, --dry-run, ...): see mdr --help
+
+Output fields:
+  slug
+
+Examples:
+  mdr search sodium
+
+API: GET /search

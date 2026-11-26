@@ -1,0 +1,17 @@
+Get one project by id or slug
+
+Usage:
+  mdr project get <id> [flags]
+
+Arguments:
+  <id>   project id or slug
+
+Global flags (-o, --fields, --full, --dry-run, ...): see mdr --help
+
+Output fields (default; all: mdr schema project get):
+  id, slug
+
+Examples:
+  mdr project get sodium
+
+API: GET /project/{id|slug}

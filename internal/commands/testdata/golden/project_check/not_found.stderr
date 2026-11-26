@@ -1,0 +1,1 @@
+{"error":{"code":"not_found","message":"project 'nope-zz' not found","http_status":404,"retryable":false,"hint":"check the id or slug; try: mdr search nope-zz","request":{"method":"GET","url":"<BASE>/v2/project/nope-zz/check"},"api_error":null,"api_description":null}}

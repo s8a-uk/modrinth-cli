@@ -1,0 +1,59 @@
+name: drift
+
+# Notices changes of the Modrinth API before users do: a weekly anonymous, read-only
+# smoke run against production, and a diff of the upstream OpenAPI spec against the
+# vendored copy in spec/openapi.yaml. Nothing here sends a token or writes anything.
+on:
+  schedule:
+    - cron: "17 4 * * 1" # Mondays 04:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # About ten GET requests to api.modrinth.com, without a token.
+      - run: make drift-smoke
+      - run: make down
+        if: always()
+
+  spec:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Compare with the upstream spec
+        env:
+          UPSTREAM: https://raw.githubusercontent.com/modrinth/code/main/apps/docs/public/openapi.yaml
+        run: |
+          curl -fsSL --retry 3 "$UPSTREAM" -o "$RUNNER_TEMP/openapi.yaml"
+          # The vendored copy starts with a 3-line provenance header.
+          tail -n +4 spec/openapi.yaml > "$RUNNER_TEMP/vendored.yaml"
+          if diff -u "$RUNNER_TEMP/vendored.yaml" "$RUNNER_TEMP/openapi.yaml" > "$RUNNER_TEMP/spec.diff"; then
+            echo "spec/openapi.yaml matches modrinth/code main"
+            exit 0
+          fi
+          added=$(grep -c '^+[^+]' "$RUNNER_TEMP/spec.diff" || true)
+          removed=$(grep -c '^-[^-]' "$RUNNER_TEMP/spec.diff" || true)
+          {
+            echo "## The upstream OpenAPI spec changed"
+            echo
+            echo "$added lines added, $removed removed in apps/docs/public/openapi.yaml of modrinth/code (main)."
+            echo "Review the diff, update spec/openapi.yaml (with its Source header) and the commands it affects."
+            echo
+            echo '```diff'
+            head -n 300 "$RUNNER_TEMP/spec.diff"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "::error title=spec drift::upstream spec changed: $added lines added, $removed removed (see the job summary)"
+          head -n 100 "$RUNNER_TEMP/spec.diff"
+          exit 1

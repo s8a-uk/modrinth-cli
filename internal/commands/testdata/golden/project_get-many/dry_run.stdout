@@ -1,0 +1,1 @@
+{"dry_run":true,"request":{"method":"GET","url":"<BASE>/v2/projects?ids=%5B%22sodium%22%2C%22lithium%22%5D","headers":{"Accept":"application/json","User-Agent":"s8a-uk/modrinth-cli/<VERSION> (https://github.com/s8a-uk/modrinth-cli)"}}}

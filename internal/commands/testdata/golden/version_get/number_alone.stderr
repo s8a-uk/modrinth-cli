@@ -1,0 +1,1 @@
+{"error":{"code":"invalid_input","message":"invalid version id: \"mc1.20.1-0.5.11\" (expected 8 letters or digits)","http_status":null,"retryable":false,"hint":"to look up by version number, pass the project too: mdr version get <project> <number>"}}

@@ -1,0 +1,148 @@
+# mdr completion for fish, generated from the command table by "mdr completion fish".
+
+function __mdr_children
+    switch "$argv[1]"
+        case 'project'
+            echo 'get get-many delete search'
+        case 'version'
+            echo 'list'
+        case 'user'
+            echo 'me'
+        case ''
+            echo 'search project version user whoami schema'
+    end
+end
+
+function __mdr_child
+    switch "$argv[1]/$argv[2]"
+        case '/search'
+            echo 'search'
+        case '/project'
+            echo 'project'
+        case 'project/get'
+            echo 'project get'
+        case 'project/get-many'
+            echo 'project get-many'
+        case 'project/delete'
+            echo 'project delete'
+        case 'project/rm'
+            echo 'project delete'
+        case 'project/search'
+            echo 'search'
+        case '/version'
+            echo 'version'
+        case 'version/list'
+            echo 'version list'
+        case 'version/ls'
+            echo 'version list'
+        case '/user'
+            echo 'user'
+        case 'user/me'
+            echo 'user me'
+        case '/whoami'
+            echo 'user me'
+        case '/schema'
+            echo 'schema'
+        case '/describe'
+            echo 'schema'
+    end
+end
+
+function __mdr_flags
+    switch "$argv[1]"
+        case 'search'
+            echo '--loader'
+        case 'project delete'
+            echo '--reason -r'
+        case 'version list'
+            echo '--limit'
+    end
+    echo '--output -o --fields --full --staging --dry-run --yes -y --timeout --max-wait --no-retry --verbose -v -vv --quiet -q --no-color --help -h --version'
+end
+
+function __mdr_values
+    switch "$argv[1]/$argv[2]"
+        case '*/--output'
+            echo 'auto json ndjson table'
+        case '*/-o'
+            echo 'auto json ndjson table'
+        case '*/--fields'
+            echo ''
+        case '*/--timeout'
+            echo ''
+        case '*/--max-wait'
+            echo ''
+        case 'search/--loader'
+            echo ''
+        case 'project delete/--reason'
+            echo ''
+        case 'project delete/-r'
+            echo ''
+        case 'version list/--limit'
+            echo ''
+        case '*'
+            return 1
+    end
+end
+
+function __mdr_args
+    switch "$argv[1]"
+    end
+end
+
+function __mdr_complete
+    set -l tokens (commandline -opc)
+    set -l cur (commandline -ct)
+    set -l cmdpath ''
+    set -l skip 0
+    for w in $tokens[2..-1]
+        if test $skip = 1
+            set skip 0
+            continue
+        end
+        switch $w
+            case '--'
+                break
+            case '-*=*'
+            case '-*'
+                if __mdr_values "$cmdpath" $w >/<VERSION>/null
+                    set skip 1
+                end
+            case '*'
+                set -l next (__mdr_child "$cmdpath" $w)
+                if test -n "$next"
+                    set cmdpath $next
+                end
+        end
+    end
+    set -l prev ''
+    if test (count $tokens) -gt 1
+        set prev $tokens[-1]
+    end
+    if string match -q -- '-*' $prev; and not string match -q -- '*=*' $prev
+        set -l vals (__mdr_values "$cmdpath" $prev)
+        if test $status -eq 0
+            if test -n "$vals"
+                string split ' ' -- $vals
+            else
+                __fish_complete_path $cur
+            end
+            return
+        end
+    end
+    if string match -q -- '-*' $cur
+        string split ' ' -- (__mdr_flags "$cmdpath")
+        return
+    end
+    set -l vals (__mdr_children "$cmdpath")
+    if test -z "$vals"
+        set vals (__mdr_args "$cmdpath")
+    end
+    if test -n "$vals"
+        string split ' ' -- $vals
+    else
+        __fish_complete_path $cur
+    end
+end
+
+complete -c mdr -f -a '(__mdr_complete)'

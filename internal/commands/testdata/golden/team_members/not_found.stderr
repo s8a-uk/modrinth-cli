@@ -1,0 +1,1 @@
+{"error":{"code":"not_found","message":"team 'zzzzzzzz' not found","http_status":404,"retryable":false,"hint":"for a project's members use: mdr project members <project>","request":{"method":"GET","url":"<BASE>/v2/team/zzzzzzzz/members"},"api_error":null,"api_description":null}}

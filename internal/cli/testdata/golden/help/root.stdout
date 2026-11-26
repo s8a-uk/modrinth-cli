@@ -1,0 +1,33 @@
+mdr: test tree
+Agents: run "mdr schema" for a machine-readable command list.
+
+Usage:
+  mdr <command> [flags]
+
+Commands:
+  search    Search projects
+  project   Projects
+  version   Versions
+  user      Users
+  schema    Describe commands as JSON
+
+Global flags:
+  -o, --output <auto|json|ndjson|table>   output format; auto: table on a terminal, json otherwise;
+                                          do not parse table (default auto)
+      --fields <a,b.c>                    select output fields (comma-separated paths, or all)
+      --full                              output all fields (same as --fields all)
+      --staging                           use the staging API (staging-api.modrinth.com)
+      --dry-run                           print the request that would be sent instead of sending it
+  -y, --yes                               skip the confirmation of destructive commands
+      --timeout <seconds>                 per-request timeout in seconds, 1-3600 (default 30)
+      --max-wait <seconds>                max seconds to wait on rate limits in total, 0-3600
+                                          (default 60)
+      --no-retry                          disable automatic retries
+  -v, --verbose                           log requests to stderr
+  -vv                                     log requests and headers to stderr
+  -q, --quiet                             suppress notes on stderr (errors are still printed)
+      --no-color                          disable colors (also NO_COLOR)
+  -h, --help                              show help
+      --version                           print the mdr version
+
+Run "mdr <command> --help" for details.

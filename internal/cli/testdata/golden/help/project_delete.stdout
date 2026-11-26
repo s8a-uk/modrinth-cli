@@ -1,0 +1,19 @@
+Delete a project
+
+Usage:
+  mdr project delete <id> [flags]
+Requires scope: PROJECT_DELETE. Supports --dry-run.
+Requires --yes when stdin is not a terminal.
+
+Arguments:
+  <id>   project id or slug
+
+Flags:
+  -r, --reason <value>   why
+
+Global flags (-o, --fields, --full, --dry-run, ...): see mdr --help
+
+Examples:
+  mdr project delete my-mod --yes
+
+API: DELETE /project/{id|slug}

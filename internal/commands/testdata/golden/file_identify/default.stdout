@@ -1,0 +1,1 @@
+[{"path":"testdata/files/a.jar","matched":true,"project_id":"AANobbMI","project_slug":"sodium","version_id":"ygf8cVZg","version_number":"mc1.20.1-0.5.11","loaders":["fabric","quilt"],"game_versions":["1.20.1"]},{"path":"testdata/files/b.jar","matched":false,"project_id":null,"project_slug":null,"version_id":null,"version_number":null,"loaders":null,"game_versions":null}]

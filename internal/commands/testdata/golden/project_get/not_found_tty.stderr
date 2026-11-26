@@ -1,0 +1,2 @@
+error: project 'nope' not found (not_found, HTTP 404)
+hint: check the id or slug; try: mdr search nope

@@ -1,0 +1,113 @@
+#compdef mdr
+# mdr completion for zsh, generated from the command table by "mdr completion zsh".
+
+_mdr_children() {
+  case "$1" in
+    "project") echo "get get-many delete search" ;;
+    "version") echo "list" ;;
+    "user") echo "me" ;;
+    "") echo "search project version user whoami schema" ;;
+  esac
+}
+
+_mdr_child() {
+  case "$1/$2" in
+    "/search") echo "search" ;;
+    "/project") echo "project" ;;
+    "project/get") echo "project get" ;;
+    "project/get-many") echo "project get-many" ;;
+    "project/delete") echo "project delete" ;;
+    "project/rm") echo "project delete" ;;
+    "project/search") echo "search" ;;
+    "/version") echo "version" ;;
+    "version/list") echo "version list" ;;
+    "version/ls") echo "version list" ;;
+    "/user") echo "user" ;;
+    "user/me") echo "user me" ;;
+    "/whoami") echo "user me" ;;
+    "/schema") echo "schema" ;;
+    "/describe") echo "schema" ;;
+  esac
+}
+
+_mdr_flags() {
+  case "$1" in
+    "search") echo "--loader" ;;
+    "project delete") echo "--reason -r" ;;
+    "version list") echo "--limit" ;;
+  esac
+  echo "--output -o --fields --full --staging --dry-run --yes -y --timeout --max-wait --no-retry --verbose -v -vv --quiet -q --no-color --help -h --version"
+}
+
+_mdr_values() {
+  case "$1/$2" in
+    */"--output") echo "auto json ndjson table" ;;
+    */"-o") echo "auto json ndjson table" ;;
+    */"--fields") echo "" ;;
+    */"--timeout") echo "" ;;
+    */"--max-wait") echo "" ;;
+    "search/--loader") echo "" ;;
+    "project delete/--reason") echo "" ;;
+    "project delete/-r") echo "" ;;
+    "version list/--limit") echo "" ;;
+    *) return 1 ;;
+  esac
+}
+
+_mdr_args() {
+  case "$1" in
+  esac
+}
+
+# _mdr_path <words before the cursor, without mdr>: the command path. Flags (and
+# the values of flags that take one) are skipped, command names descend.
+_mdr_path() {
+  local cmdpath="" w next skip=0
+  for w in "$@"; do
+    if [ "$skip" = 1 ]; then skip=0; continue; fi
+    case "$w" in
+      --) break ;;
+      -*=*) ;;
+      -*) if _mdr_values "$cmdpath" "$w" >/<VERSION>/null; then skip=1; fi ;;
+      *) next="$(_mdr_child "$cmdpath" "$w")"; if [ -n "$next" ]; then cmdpath="$next"; fi ;;
+    esac
+  done
+  echo "$cmdpath"
+}
+
+# _mdr_candidates <path> <previous word> <current word>: the words to offer, or
+# nothing (exit 1) for file names.
+_mdr_candidates() {
+  local vals
+  case "$2" in
+    -*=*) ;;
+    -*) if vals="$(_mdr_values "$1" "$2")"; then
+          [ -n "$vals" ] && echo "$vals" && return 0
+          return 1
+        fi ;;
+  esac
+  case "$3" in
+    -*) _mdr_flags "$1"; return 0 ;;
+  esac
+  vals="$(_mdr_children "$1")"
+  [ -z "$vals" ] && vals="$(_mdr_args "$1")"
+  [ -n "$vals" ] && echo "$vals" && return 0
+  return 1
+}
+
+_mdr() {
+  local cur="${words[CURRENT]}" prev="" cmdpath vals
+  (( CURRENT > 2 )) && prev="${words[CURRENT-1]}"
+  cmdpath="$(_mdr_path "${(@)words[2,CURRENT-1]}")"
+  if vals="$(_mdr_candidates "$cmdpath" "$prev" "$cur")"; then
+    compadd -- ${=vals}
+  else
+    _files
+  fi
+}
+
+if [ "$funcstack[1]" = "_mdr" ]; then
+  _mdr "$@"
+else
+  compdef _mdr mdr
+fi

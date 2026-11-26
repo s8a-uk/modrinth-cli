@@ -1,0 +1,68 @@
+[
+  {
+    "role": "Maintainer",
+    "team_id": "4reLOAKe",
+    "user": {
+      "id": "DzLrfrbK",
+      "username": "IMS",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/31803019?v=4",
+      "raw_avatar_url": "https://avatars3.githubusercontent.com/u/31803019?v=4",
+      "bio": "the Iris guy",
+      "created": "2020-12-01T00:40:02.137876Z",
+      "role": "developer",
+      "badges": 0,
+      "campaigns": {
+        "pride_26": {
+          "last_donated_at": "2026-06-01T15:58:54.051668Z",
+          "has_badge": true,
+          "has_midas": false
+        }
+      },
+      "auth_providers": null,
+      "email": null,
+      "email_verified": null,
+      "has_password": null,
+      "has_totp": null,
+      "payout_data": null,
+      "stripe_customer_id": null,
+      "allow_friend_requests": null,
+      "eligibility_verified_at": null,
+      "github_id": null
+    },
+    "permissions": null,
+    "accepted": true,
+    "payouts_split": null,
+    "ordering": 0
+  },
+  {
+    "role": "Project Lead",
+    "team_id": "4reLOAKe",
+    "user": {
+      "id": "TEZXhE2U",
+      "username": "jellysquid3",
+      "avatar_url": "https://cdn.modrinth.com/user/TEZXhE2U/f4705a5f2388c65029ae2e59f1434b3e6e4de23a.png",
+      "raw_avatar_url": "https://cdn.modrinth.com/user/TEZXhE2U/f4705a5f2388c65029ae2e59f1434b3e6e4de23a.png",
+      "bio": "Professional idiot at day, maniac programmer by night.",
+      "created": "2021-01-03T00:49:18.373336Z",
+      "role": "developer",
+      "badges": 0,
+      "campaigns": {
+        "pride_26": null
+      },
+      "auth_providers": null,
+      "email": null,
+      "email_verified": null,
+      "has_password": null,
+      "has_totp": null,
+      "payout_data": null,
+      "stripe_customer_id": null,
+      "allow_friend_requests": null,
+      "eligibility_verified_at": null,
+      "github_id": null
+    },
+    "permissions": null,
+    "accepted": true,
+    "payouts_split": null,
+    "ordering": 0
+  }
+]

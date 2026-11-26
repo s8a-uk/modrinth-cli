@@ -1,0 +1,19 @@
+# Overlay for the targets that use a real staging token (make test-live,
+# make run-staging). It mounts the token file read-only as a compose secret, so
+# compose.yaml alone works without the file (CI, other contributors).
+#
+#   docker compose -f compose.yaml -f compose.live.yaml run --rm dev ...
+#
+# The file holds the token on its first line. Set MODRINTH_STAGING_TOKEN_PATH to
+# use another location.
+services:
+  dev:
+    secrets:
+      - source: modrinth_staging_token
+        target: modrinth_staging_token
+    environment:
+      MODRINTH_STAGING_TOKEN_FILE: /run/secrets/modrinth_staging_token
+
+secrets:
+  modrinth_staging_token:
+    file: ${MODRINTH_STAGING_TOKEN_PATH:-${HOME}/.config/modrinth-cli/staging-token}

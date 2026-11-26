@@ -1,0 +1,23 @@
+services:
+  dev:
+    build:
+      context: .
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    working_dir: /work
+    init: true
+    command: ["sleep", "infinity"]
+    volumes:
+      - .:/work
+      - go-build-cache:/cache/go-build
+      - go-mod-cache:/cache/gomod
+    environment:
+      # Passed through only when set on the host (used by `make test-live`).
+      # The staging token is not passed here: compose.live.yaml mounts it as a file.
+      - MODRINTH_LIVE_TEST
+      - MODRINTH_LIVE_PROJECT
+      # Used by `make run` against the real API.
+      - MODRINTH_TOKEN
+
+volumes:
+  go-build-cache:
+  go-mod-cache:

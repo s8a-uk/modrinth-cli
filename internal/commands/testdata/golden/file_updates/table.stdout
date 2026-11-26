@@ -1,0 +1,5 @@
+[1mFILE   STATUS                 PROJECT  CURRENT  LATEST[0m
+a.jar  update_available       alpha    1.0      1.1
+b.jar  unknown                [2m-[0m        [2m-[0m        [2m-[0m
+c.jar  up_to_date             gamma    3.0      3.0
+d.jar  no_compatible_version  [2m-[0m        4.0      [2m-[0m

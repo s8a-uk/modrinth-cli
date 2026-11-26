@@ -1,0 +1,86 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  # The same path as local development: everything runs in the dev container.
+  # The Makefile passes the runner's UID/GID (id -u / id -g) to the container, so
+  # files it writes in the checkout stay owned by the runner user.
+  linux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: make check
+      - run: make dist smoke
+      - run: make down
+        if: always()
+
+  # Windows and macOS have no dev container: test with the Go of the Dockerfile.
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    env:
+      CGO_ENABLED: "0"
+      GOPROXY: "off"
+      GOFLAGS: -mod=readonly
+      GOTOOLCHAIN: local
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: go
+        run: |
+          v=$(sed -n 's/^FROM golang:\([0-9][0-9.]*\)-.*/\1/p' Dockerfile)
+          test -n "$v" || { echo "no Go version in Dockerfile" >&2; exit 1; }
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
+        with:
+          go-version: ${{ steps.go.outputs.version }}
+          cache: false
+      - run: go vet ./...
+      - run: go test ./...
+      - run: |
+          go build -trimpath -buildvcs=false -o mdr.exe ./cmd/mdr
+          ./mdr.exe --version
+          ./mdr.exe schema > /dev/null
+
+  darwin:
+    runs-on: macos-latest # Apple Silicon (arm64)
+    timeout-minutes: 30
+    env:
+      CGO_ENABLED: "0"
+      GOPROXY: "off"
+      GOFLAGS: -mod=readonly
+      GOTOOLCHAIN: local
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: go
+        run: |
+          v=$(sed -n 's/^FROM golang:\([0-9][0-9.]*\)-.*/\1/p' Dockerfile)
+          test -n "$v" || { echo "no Go version in Dockerfile" >&2; exit 1; }
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
+        with:
+          go-version: ${{ steps.go.outputs.version }}
+          cache: false
+      - run: go vet ./...
+      - run: go test ./...
+      - run: |
+          test "$(go env GOARCH)" = arm64
+          go build -trimpath -buildvcs=false -o mdr ./cmd/mdr
+          ./mdr --version
+          ./mdr schema > /dev/null
