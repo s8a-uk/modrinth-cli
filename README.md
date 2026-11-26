@@ -10,6 +10,20 @@ stdout is not a terminal, errors are structured, exit codes are documented, and
 `mdr schema` describes every command as JSON. It is a single static binary written with
 the Go standard library only.
 
+### Zero external dependencies
+
+`mdr` uses no third-party libraries: `go.mod` has no `require` lines and there is no
+`go.sum`. HTTP and TLS, JSON, argument parsing, tables, multipart uploads, hashing and
+terminal detection all come from the Go standard library or from this repository. CI
+enforces it (`make deps-check` fails on any module or import outside the standard library).
+
+- **Small supply chain.** The only code you trust besides this repository is the Go
+  toolchain. Updating means updating Go.
+- **No runtime libraries.** Binaries are built with `CGO_ENABLED=0`: no libc, OpenSSL or
+  other shared libraries are needed. TLS uses the operating system's root certificates.
+- **Simple builds.** `go install` downloads this module and nothing else; the release
+  builds run with the module proxy turned off.
+
 `mdr` is not a mod manager (no profiles, dependency installs or launcher integration) and is
 **not affiliated with or endorsed by Modrinth**.
 
